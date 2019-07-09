@@ -4,7 +4,9 @@
 
 <div class="card border">
     <div class="card-body">
-        <form action="/inventario" method="POST">
+        <h5 class="card-title text-uppercase">Cadastro de Inventários</h5>
+        <hr>
+        <form action="/inventario" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="row">
                 <div class="col-md-3 text-left">
@@ -56,7 +58,7 @@
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary btn-md">Salvar</button>
-                <button type="cancel" class="btn btn-danger btn-md">Cancelar</button>
+                <a href="/inventario" class="btn btn-danger btn-md">Cancelar</a>
             </div>
         </form>
     </div>

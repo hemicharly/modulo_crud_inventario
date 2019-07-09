@@ -3,7 +3,7 @@
 @section('body')
 <div class="card border">
     <div class="card-body">
-        <h5 class="card-title text-uppercase">Cadastro de Inventários</h5>
+        <h5 class="card-title text-uppercase">Lista de Inventários</h5>
         @if(count($listaInventarios) > 0)
         <table class="table table-ordered table-hover">
             <thead>
