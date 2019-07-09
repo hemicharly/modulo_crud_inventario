@@ -47,7 +47,7 @@
                 <div class="col-md-6 text-left">
                     <div class="form-group">
                         <label for="precoProduto">Preço do produto</label>
-                        <input type="number" class="form-control {{ $errors->has('precoProduto') ? 'is-invalid' : '' }}" name="precoProduto" value="{{ old('precoProduto') }}" id="precoProduto" placeholder="Preço do produto">
+                        <input type="number"  step="any" class="form-control {{ $errors->has('precoProduto') ? 'is-invalid' : '' }}" name="precoProduto" value="{{ old('precoProduto') }}" id="precoProduto" placeholder="Preço do produto">
                         @if ($errors->has('precoProduto'))
                         <div class="invalid-feedback">
                             {{ $errors->first('precoProduto') }}

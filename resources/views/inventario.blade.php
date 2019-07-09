@@ -30,8 +30,8 @@
                         <td>{{$inv->codigoProduto}}</td>
                         <td class="text-uppercase">{{$inv->descricaoProduto}}</td>
                         <td class="text-center">{{$inv->qtdeProduto}}</td>
-                        <td class="text-center">{{$inv->precoProduto}}</td>
-                        <td class="text-center">{{$inv->qtdeProduto*$inv->precoProduto}}</td>
+                        <td class="text-center">{{ ''.number_format($inv->precoProduto, 2, ',', '.') }}</td>
+                        <td class="text-center">{{ ''.number_format($inv->qtdeProduto*$inv->precoProduto, 2, ',', '.')}}</td>
                         <td class="text-right">
                             <a href="/inventario/editar/{{$inv->id}}" class="btn btn-primary btn-sm">Editar</a>
                             <a href="/inventario/apagar/{{$inv->id}}" class="btn btn-danger btn-sm">Apagar</a>
