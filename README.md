@@ -1,0 +1,2 @@
+# modulo_crud_inventario
+modulo_crud_inventario
