@@ -1,5 +1,3 @@
-## modulo_crud_inventario
-
 # Configurando Ambiente de desenvolvimento, com sistema operacional Linux Ubuntu
 
 # Instalar pacotes no ubuntu:
