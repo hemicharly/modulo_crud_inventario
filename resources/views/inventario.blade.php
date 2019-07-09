@@ -43,5 +43,16 @@
         </div>
         @endif
     </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-md-5 m-auto text-left">
+                <p class="card-title">Exibindo {{$listaInventarios->count()}} inventário(s) de {{$listaInventarios->total()}}
+                    ( {{$listaInventarios->firstItem()}} a {{$listaInventarios->lastItem()}} ) </p>
+            </div>
+            <div class="col-md-7 m-auto text-center">
+                {{ $listaInventarios->links() }}
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

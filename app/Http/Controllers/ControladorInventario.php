@@ -15,8 +15,8 @@ class ControladorInventario extends Controller
      */
     public function index()
     {
-        $listaInventarios = Inventario::all();
-        return view('inventario', compact('listaInventarios'));
+        $listaInventarios = Inventario::paginate(2);
+        return view('inventario', compact(['listaInventarios']));
     }
 
     /**
