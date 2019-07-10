@@ -11,6 +11,24 @@
                 <a href="/inventario/novo" class="card-title btn btn-block btn-success btn-md" role="button">Novo inventário</a>
             </div>
         </div>
+        <div class="row card-title">
+            <div class="col-md-12 m-auto text-left">
+                <form action="/inventario/searchInventario" method="GET" enctype="multipart/form-data">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <div class="row">
+                        <div class="col-md-4 m-auto text-left">
+                            <input type="text" class="form-control" name="codigoProduto" id="codigoProduto" placeholder="Buscar pelo código do produto">
+                        </div>
+                        <div class="col-md-4 m-auto text-left">
+                            <input type="text" class="form-control" name="descricaoProduto" id="descricaoProduto" placeholder="Buscar pela descrição do produto">
+                        </div>
+                        <div class="col-md-4 m-auto text-left">
+                            <button type="submit" class="btn btn-primary btn-md" id="btnBuscar">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
         @if(count($listaInventarios) > 0)
         <div class="table-responsive">
             <table class="table table-reponsive table-ordered table-md table-hover">
@@ -50,7 +68,11 @@
                     ( {{$listaInventarios->firstItem()}} a {{$listaInventarios->lastItem()}} ) </p>
             </div>
             <div class="col-md-7 m-auto text-center">
+            @if (isset($dataForm))
+                {{ $listaInventarios->appends($dataForm)->links() }}
+            @else
                 {{ $listaInventarios->links() }}
+            @endif
             </div>
         </div>
     </div>

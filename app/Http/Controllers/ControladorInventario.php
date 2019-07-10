@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Inventario;
+use PhpParser\Node\Expr\Array_;
 
 class ControladorInventario extends Controller
 {
@@ -14,18 +14,22 @@ class ControladorInventario extends Controller
         return view('inventario', compact(['listaInventarios']));
     }
 
-    public function filter(Request $request, Inventario $inventario)
+    public function searchInventario(Request $request, Inventario $inventario)
     {
-        if ($request->has('codigoProduto')) {
-            return $inventario->where('codigoProduto', $request->input('codigoProduto'))->get();
+        $dataForm = $request->except('_token');
+
+        if ($dataForm['codigoProduto'] != null && $dataForm['codigoProduto'] != "") {
+            $listaInventarios = $inventario->where('codigoProduto', 'like', $dataForm['codigoProduto'])->paginate(3);
+            return view('inventario', compact(['listaInventarios']));
+        } 
+        
+        if ($dataForm['descricaoProduto'] != null && $dataForm['descricaoProduto'] != "") {
+            $listaInventarios = $inventario->where('descricaoProduto', 'like', $dataForm['descricaoProduto'])->paginate(3);
+            return view('inventario', compact(['listaInventarios']));
         }
 
-        if ($request->has('descricaoProduto')) {
-            return $inventario->where('descricaoProduto', $request->input('descricaoProduto'))
-                ->get();
-        }
-
-        return Inventario::paginate(2);
+        $listaInventarios = $inventario->paginate(3);
+        return view('inventario', compact(['listaInventarios']));
     }
 
     public function create()
