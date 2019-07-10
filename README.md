@@ -19,7 +19,7 @@
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
-    DB_DATABASE=superlogica
+    DB_DATABASE=base
     DB_USERNAME=root
     DB_PASSWORD=root
 
