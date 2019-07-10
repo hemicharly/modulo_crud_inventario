@@ -6,8 +6,8 @@
     <div class="card-body">
         <h5 class="card-title text-uppercase">Cadastro de Inventários</h5>
         <hr>
-        <form action="/inventario" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <form action="/inventario" method="POST">
+            @csrf
             <div class="row">
                 <div class="col-md-3 text-left">
                     <div class="form-group">

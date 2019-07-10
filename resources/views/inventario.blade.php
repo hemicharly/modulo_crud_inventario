@@ -8,13 +8,13 @@
                 <h5 class="card-title text-uppercase">Lista de Inventários</h5>
             </div>
             <div class="col-md-3 m-auto text-right">
-                <a href="/inventario/novo" class="card-title btn btn-block btn-success btn-md" role="button">Novo inventário</a>
+                <a href="{{route('inventario.novo')}}" class="card-title btn btn-block btn-success btn-md" role="button">Novo inventário</a>
             </div>
         </div>
         <div class="row card-title">
             <div class="col-md-12 m-auto text-left">
-                <form action="/inventario/searchInventario" method="GET" enctype="multipart/form-data">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <form action="{{route('inventario.searchInventario')}}" method="post" >
+                     @csrf
                     <div class="row">
                         <div class="col-md-4 m-auto text-left">
                             <input type="text" class="form-control" name="codigoProduto" id="codigoProduto" placeholder="Buscar pelo código do produto">
