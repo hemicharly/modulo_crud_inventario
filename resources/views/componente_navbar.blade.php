@@ -11,6 +11,9 @@
             <li @if($current=="inventario" ) class="nav-item active" @else class="nav-item" @endif>
                 <a class="nav-link" href="/inventario">Inventário</a>
             </li>
+            <li @if($current=="boleto" ) class="nav-item active" @else class="nav-item" @endif>
+                <a class="nav-link" href="/boleto">Boleto</a>
+            </li>
         </ul>
 
     </div>

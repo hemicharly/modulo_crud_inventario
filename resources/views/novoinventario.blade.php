@@ -56,6 +56,7 @@
                     </div>
                 </div>
             </div>
+            <hr>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary btn-md">Salvar</button>
                 <a href="/inventario" class="btn btn-danger btn-md">Cancelar</a>

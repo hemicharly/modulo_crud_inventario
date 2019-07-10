@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Inventario extends Model
 {
@@ -15,7 +16,13 @@ class Inventario extends Model
             if (isset($data['descricaoProduto']))
                 $query->where('descricaoProduto', 'like', '%' . $data['descricaoProduto'] . '%');
         })->paginate($totalPage);
-       
+
+        return $inventario;
+    }
+
+    public static function sumPrecoTotal()
+    {
+        $inventario = DB::table('inventarios')->select((DB::raw('sum(qtdeProduto * precoProduto) as precoTotal')))->first();
         return $inventario;
     }
 }

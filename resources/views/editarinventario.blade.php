@@ -56,6 +56,7 @@
                     </div>
                 </div>
             </div>
+            <hr>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary btn-md">Salvar</button>
                 <button type="cancel" class="btn btn-danger btn-md">Cancelar</button>

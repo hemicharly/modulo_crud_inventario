@@ -8,7 +8,7 @@ use App\Inventario;
 
 class ControladorInventario extends Controller
 {
-    private $totalPage = 2;
+    private $totalPage = 20;
 
     private function validateData(Request $request)
     {

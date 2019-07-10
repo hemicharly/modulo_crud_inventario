@@ -11,3 +11,5 @@ Route::post('inventario/{id}', 'ControladorInventario@update');
 Route::get('inventario/editar/{id}', 'ControladorInventario@edit');
 Route::get('inventario/apagar/{id}', 'ControladorInventario@destroy');
 Route::any('inventario.search', 'ControladorInventario@search')->name('inventario.search');
+
+Route::get('boleto', 'ControladorBoleto@index');
