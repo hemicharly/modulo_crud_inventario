@@ -10,7 +10,7 @@ class ControladorInventario extends Controller
 {
     public function index()
     {
-        $listaInventarios = Inventario::paginate(2);
+        $listaInventarios = Inventario::paginate(3);
         return view('inventario', compact(['listaInventarios']));
     }
 
@@ -18,12 +18,12 @@ class ControladorInventario extends Controller
     {
         $dataForm = $request->except('_token');
 
-        if ($dataForm['codigoProduto'] != null && $dataForm['codigoProduto'] != "") {
+        if (isset($dataForm['codigoProduto'])) {
             $listaInventarios = $inventario->where('codigoProduto', 'like', $dataForm['codigoProduto'])->paginate(3);
             return view('inventario', compact(['listaInventarios']));
         } 
         
-        if ($dataForm['descricaoProduto'] != null && $dataForm['descricaoProduto'] != "") {
+        if (isset($dataForm['descricaoProduto'])) {
             $listaInventarios = $inventario->where('descricaoProduto', 'like', $dataForm['descricaoProduto'])->paginate(3);
             return view('inventario', compact(['listaInventarios']));
         }
