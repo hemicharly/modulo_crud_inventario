@@ -13,8 +13,8 @@
         </div>
         <div class="row card-title">
             <div class="col-md-12 m-auto text-left">
-                <form action="{{route('inventario.searchInventario')}}" method="post" >
-                     @csrf
+                <form action="{{route('inventario.search')}}" method="post">
+                    @csrf
                     <div class="row">
                         <div class="col-md-4 m-auto text-left">
                             <input type="text" class="form-control" name="codigoProduto" id="codigoProduto" placeholder="Buscar pelo código do produto">
@@ -68,11 +68,11 @@
                     ( {{$listaInventarios->firstItem()}} a {{$listaInventarios->lastItem()}} ) </p>
             </div>
             <div class="col-md-7 m-auto text-center">
-            @if (isset($dataForm))
+                @if (isset($dataForm))
                 {{ $listaInventarios->appends($dataForm)->links() }}
-            @else
+                @else
                 {{ $listaInventarios->links() }}
-            @endif
+                @endif
             </div>
         </div>
     </div>
