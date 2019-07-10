@@ -13,7 +13,7 @@
     https://getcomposer.org/download/
 
 # Criar database no mysql:
-    create database superlogica;
+    create database base;
 
 # Configurar a comunicação do projeto a database mysql no arquivo .env
     DB_CONNECTION=mysql

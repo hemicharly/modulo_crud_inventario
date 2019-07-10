@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <title>Superlógica</title>
+    <title>SISTEMA CRUD</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <style>
         body {
