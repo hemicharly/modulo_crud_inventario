@@ -4,9 +4,60 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Inventario;
+use GuzzleHttp\Client;
+use function Psy\debug;
 
 class ControladorBoleto extends Controller
 {
+    private function carregarBody(Request $request)
+    {
+        $body = [];
+        $body['nome_cliente'] = $request->input('nome_cliente');
+        $body['cpf_cliente'] = $request->input('cpf_cliente');
+        $body['cep_cliente'] = $request->input('cep_cliente');
+        $body['endereco_cliente'] = $request->input('endereco_cliente');
+        $body['numero_cliente'] = $request->input('numero_cliente');
+        $body['bairro_cliente'] = $request->input('bairro_cliente');
+        $body['cidade_cliente'] = $request->input('cidade_cliente');
+        $body['estado_cliente'] = $request->input('estado_cliente');
+        $body['grupo'] = $request->input('grupo');
+        $body['juros'] = $request->input('juros');
+        $body['multa'] = $request->input('multa');
+        $body['desconto'] = $request->input('desconto');
+        $body['vencimento'] = $request->input('vencimento');
+        $body['valor'] = $request->input('valor');
+
+        return $body;
+    }
+
+    private function gerarBoleto(Request $request)
+    {
+        try {
+
+            $client = new Client();
+
+            $url = "https://api.pjbank.com.br/recebimentos/{{credencial-boleto}}/transacoes";
+
+            $formData = $this->carregarBody($request);
+
+            $response = $client->request('POST', $url, [
+                'headers' => ['Content-Type' => 'application/x-www-form-urlencoded'],
+                'body' => json_encode($formData)
+            ]);
+
+            if ($response->getStatusCode() == 200) {
+                $result = $response->getBody();
+
+                dd($result);
+            } else {
+                echo 'Erro';
+            }
+
+        } catch (Exception $e) {
+            echo 'Message: ' . $e->getMessage();
+        }
+    }
+
     private function validateData(Request $request)
     {
         $regras = [
@@ -70,7 +121,8 @@ class ControladorBoleto extends Controller
 
     public function store(Request $request)
     {
-        $this->validateData($request);
+        //$this->validateData($request);
+        $this->gerarBoleto($request);
         return redirect('/boleto');
     }
 
