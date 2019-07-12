@@ -23,8 +23,8 @@
     DB_HOST=127.0.0.1
     DB_PORT=3306
     DB_DATABASE=base
-    DB_USERNAME=root
-    DB_PASSWORD=root
+    DB_USERNAME=username
+    DB_PASSWORD=password
 
 # Executar migrate no projeto para criar as tabelas:
     php artisan migrate:fresh
