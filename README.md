@@ -8,7 +8,10 @@
     sudo apt-get install libapache2-mod-php7.2 php7.2-xml php7.2-opcache php7.2-mbstring php7.2-zip -y
     sudo apt-get install php7.2-mysql mysql-server-5.7 mysql-client-5.7 -y
     sudo a2enmod php7.2
-
+  
+# Framework Laravel
+    versão: 5.8
+  
 # Instalando composer verifique o link:
     https://getcomposer.org/download/
 
