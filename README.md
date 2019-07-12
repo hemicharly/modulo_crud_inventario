@@ -1,6 +1,6 @@
 # Configurando Ambiente de desenvolvimento, com sistema operacional Linux Ubuntu
 
-# Instalar pacotes no ubuntu:
+# Instalando os pacotes no ubuntu:
     sudo add-apt-repository ppa:ondrej/php
     sudo apt-get update
     sudo apt-get upgrade
@@ -15,10 +15,10 @@
 # Instalando composer verifique o link:
     https://getcomposer.org/download/
 
-# Criar database no mysql:
+# Criando database no mysql:
     create database base;
 
-# Configurar a comunicação do projeto ao database mysql no arquivo .env
+# Configurando a comunicação do projeto ao database mysql no arquivo .env
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
@@ -26,7 +26,7 @@
     DB_USERNAME=username
     DB_PASSWORD=password
 
-# Executar migrate no projeto para criar as tabelas:
+# Executando migrate no projeto para criar as tabelas:
     php artisan migrate:fresh
 
 # Instalando as dependências:
