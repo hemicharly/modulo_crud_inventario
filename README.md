@@ -29,8 +29,11 @@
 # Executando migrate no projeto para criar as tabelas:
     php artisan migrate:fresh
 
+# Instando o nodejs verifique o link:
+    https://nodejs.org/en/download/
+
 # Instalando as dependências:
-    npm install yarn
+    npm install yarn -g
     yarn
     yarn dev
 
