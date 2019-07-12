@@ -110,7 +110,7 @@
                 <div class="col-md-3 text-left">
                     <div class="form-group">
                         <label for="pedido_numero">Número pedido</label>
-                        <input type="number" maxlength="20" class="form-control {{ $errors->has('pedido_numero') ? 'is-invalid' : '' }}" name="pedido_numero" id="pedido_numero" value="" placeholder="Número do pedido" value="{{ old('pedido_numero') }}">
+                        <input type="number" maxlength="20" class="form-control {{ $errors->has('pedido_numero') ? 'is-invalid' : '' }}" name="pedido_numero" id="pedido_numero" placeholder="Número do pedido" value="{{ old('pedido_numero') }}">
                         @if ($errors->has('pedido_numero'))
                         <div class="invalid-feedback">
                             {{ $errors->first('pedido_numero') }}
@@ -121,7 +121,7 @@
                 <div class="col-md-3 text-left">
                     <div class="form-group">
                         <label for="grupo">Grupo boleto</label>
-                        <input type="text" maxlength="60" class="form-control {{ $errors->has('grupo') ? 'is-invalid' : '' }}" name="grupo" id="grupo" value="" placeholder="Grupo de boletos" value="{{ old('grupo') }}">
+                        <input type="text" maxlength="60" class="form-control {{ $errors->has('grupo') ? 'is-invalid' : '' }}" name="grupo" id="grupo" placeholder="Grupo de boletos" value="{{ old('grupo') }}">
                         @if ($errors->has('grupo'))
                         <div class="invalid-feedback">
                             {{ $errors->first('grupo') }}
@@ -179,13 +179,16 @@
                 <div class="col-md-3 text-left">
                     <div class="form-group">
                         <label for="valor">Valor boleto</label>
-                        <input type="text" class="form-control" name="valor" id="valor" readonly value="{{ ''.number_format($inventario->precoTotal, 2, ',', '.') }}">
+                        <input type="text" class="form-control" name="valor" id="valor" readonly value="{{ 'R$'.number_format($inventario->precoTotal, 2, ',', '.') }}">
                     </div>
                 </div>
             </div>
             <hr>
             <div class="text-center">
                 <button type="submit" class="btn btn-dark btn-md">Gerar Boleto</button>
+                @if (isset($linkDownloadBoleto)))
+                    <a href="{{$linkDownloadBoleto}}" target="_blank" class="btn btn-primary btn-md">Download</a>
+                @endif
                 <a href="/boleto" class="btn btn-danger btn-md">Cancelar</a>
             </div>
         </form>
