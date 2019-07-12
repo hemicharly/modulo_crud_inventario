@@ -18,7 +18,7 @@
 # Criar database no mysql:
     create database base;
 
-# Configurar a comunicação do projeto a database mysql no arquivo .env
+# Configurar a comunicação do projeto ao database mysql no arquivo .env
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
@@ -29,10 +29,10 @@
 # Executar migrate no projeto para criar as tabelas:
     php artisan migrate:fresh
 
-# Instalando dependências:
+# Instalando as dependências:
     npm install yarn
     yarn
     yarn dev
 
-# Iniciando aplicação:
+# Iniciando a aplicação:
     yarn start
